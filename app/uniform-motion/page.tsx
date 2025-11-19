@@ -48,15 +48,27 @@ export default function UniformMotionPage() {
       </p>
 
       {/* Input values for graph */}
-      <div className="flex flex-col gap-3 w-64 mt-4">
+      <div className="flex flex-col gap-4 w-64 mt-4">
         {/* Initial position */}
-        <input type="number" placeholder="X₀" className="border p-2 rounded" value={x_i} onChange={(e) => setX_i(Number(e.target.value))}/>
+        <div className="flex items-center gap-2">
+          <span className="w-10 font-semibold">X₀:</span>
+          <input type="number" className="border p-2 rounded w-32" value={x_i} onChange={(e) => setX_i(Number(e.target.value))}/>
+          <span className="w-10 text-sm text-gray-400">m</span>
+        </div>
 
         {/* Velocity */}
-        <input type="number" placeholder="V" className="border p-2 rounded" value={v} onChange={(e) => setV(Number(e.target.value))}/>
+        <div className="flex items-center gap-2">
+          <span className="w-10 font-semibold">V:</span>
+          <input type="number" className="border p-2 rounded w-32" value={v} onChange={(e) => setV(Number(e.target.value))}/>
+          <span className="w-10 text-sm text-gray-400">m/s</span>
+        </div>
 
         {/* Initial time */}
-        <input type="number" placeholder="t₀" className="border p-2 rounded" value={t_i} onChange={(e) => setT_i(Number(e.target.value))}/>
+        <div className="flex items-center gap-2">
+          <span className="w-10 font-semibold">t₀:</span>
+          <input type="number" className="border p-2 rounded w-32" value={t_i} onChange={(e) => setT_i(Number(e.target.value))}/>
+          <span className="w-10 text-sm text-gray-400">s</span>
+        </div>
 
         {/* Generate graph button */}
         <button onClick={handleGenerate}

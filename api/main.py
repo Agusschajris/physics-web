@@ -36,7 +36,7 @@ def UM(data: UMInputs):
     x = f_UM(t, data.t_i, data.x_i, data.v)
 
     plt.figure()
-    plt.plot(t, x, marker='.', color='red')
+    plt.plot(t, x, color='red')
     plt.xlabel("Time")
     plt.ylabel("Position")
     plt.title("Uniform Motion")
