@@ -3,9 +3,9 @@ import { useState } from "react";
 
 export default function UniformMotionPage() {
   {/* Getting graph */}
-  const [x_i, setX_i] = useState(0);
-  const [v, setV] = useState(0);
-  const [t_i, setT_i] = useState(0);
+  const [x_i, setX_i] = useState("");
+  const [v, setV] = useState("");
+  const [t_i, setT_i] = useState("");
   const [graph, setGraph] = useState("");
 
   const handleGenerate = async () => {
@@ -26,7 +26,7 @@ export default function UniformMotionPage() {
   
   {/* Here starts what I actually see in the page */} 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen">
+    <main className="flex flex-col items-center min-h-screen py-10">
       {/* Title */}
       <h1 className="text-3xl font-bold mb-4">
         Uniform Motion (Constant Velocity)
@@ -50,23 +50,23 @@ export default function UniformMotionPage() {
       {/* Input values for graph */}
       <div className="flex flex-col gap-4 w-64 mt-4">
         {/* Initial position */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <span className="w-10 font-semibold">X₀:</span>
-          <input type="number" className="border p-2 rounded w-32" value={x_i} onChange={(e) => setX_i(Number(e.target.value))}/>
+          <input type="number" className="border p-2 rounded w-32" value={x_i} onChange={(e) => setX_i(e.target.value)} />
           <span className="w-10 text-sm text-gray-400">m</span>
         </div>
 
         {/* Velocity */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <span className="w-10 font-semibold">V:</span>
-          <input type="number" className="border p-2 rounded w-32" value={v} onChange={(e) => setV(Number(e.target.value))}/>
+          <input type="number" className="border p-2 rounded w-32" value={v} onChange={(e) => setV(e.target.value)} />
           <span className="w-10 text-sm text-gray-400">m/s</span>
         </div>
 
         {/* Initial time */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <span className="w-10 font-semibold">t₀:</span>
-          <input type="number" className="border p-2 rounded w-32" value={t_i} onChange={(e) => setT_i(Number(e.target.value))}/>
+          <input type="number" className="border p-2 rounded w-32" value={t_i} onChange={(e) => setT_i(e.target.value)} />
           <span className="w-10 text-sm text-gray-400">s</span>
         </div>
 
@@ -78,7 +78,7 @@ export default function UniformMotionPage() {
       </div>
 
       {/* Graph */}
-      <img src={`data:graph/png;base64,${graph}`} alt="Uniform motion graph" className="mt-6"/>
+      {graph && (<img src={`data:image/png;base64,${graph}`} alt="Uniform motion graph" className="mt-6"/>)}
       
     </main>
   );
