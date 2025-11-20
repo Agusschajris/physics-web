@@ -47,7 +47,7 @@ def UM(data: UMInputs):
     x = f_UM(t, data.t_i, data.x_i, data.v)
 
     plt.figure()
-    plt.plot(t, x, color='violet')
+    plt.plot(t, x, color='blueviolet')
     plt.xlabel("Time")
     plt.ylabel("Position")
     plt.title("Uniform Motion")
@@ -73,7 +73,7 @@ def CA(data: CAInputs):
     x = f_CA(t, data.t_i, data.x_i, data.v_i, data.a)
 
     plt.figure()
-    plt.plot(t, x, color='violet')
+    plt.plot(t, x, color='blueviolet')
     plt.xlabel("Time")
     plt.ylabel("Position")
     plt.title("Constant Acceleration")
