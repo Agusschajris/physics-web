@@ -73,7 +73,7 @@ export default function UniformMotionPage() {
         {/* Generate graph button */}
         <button onClick={handleGenerate}
           className="px-4 py-2 bg-violet-600 text-white rounded hover:bg-violet-800">
-          Generate Graph
+          Generate graph
         </button>
       </div>
 
