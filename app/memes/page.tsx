@@ -15,12 +15,16 @@ export default function MemesPage() {
     "https://i.pinimg.com/736x/46/2c/c7/462cc7ef4fe0260f5247f06f95d6e16a.jpg",
     "https://i.pinimg.com/736x/2e/f9/78/2ef978f370026f7cad5018cd51aa8a97.jpg",
     "https://i.pinimg.com/736x/81/10/bc/8110bc36b0dd40e07e0009e226cacf61.jpg",
-    "https://i.pinimg.com/736x/0d/24/a5/0d24a5411b6878a0eb0aed613a666d09.jpg"
+    "https://i.pinimg.com/736x/0d/24/a5/0d24a5411b6878a0eb0aed613a666d09.jpg",
+    "https://i.pinimg.com/736x/32/a3/b1/32a3b18a433104bdc6768f2d31d9143c.jpg",
+    "https://i.pinimg.com/1200x/44/e4/93/44e4935a528de68fd401e5cb05052f7b.jpg",
+    "https://i.pinimg.com/736x/de/95/31/de9531495babbab9f2ecfe1cef00031a.jpg",
+    "https://i.pinimg.com/1200x/3e/49/d0/3e49d07a5a42dcf4be8e2388fe38a925.jpg"
   ];
 
   return (
     <main className="min-h-screen p-8">
-      <h1 className="text-3xl font-bold text-center mb-8">Kinematics Memes</h1>
+      <h1 className="text-3xl font-bold text-center mb-8">Physics Memes</h1>
 
       <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
         {memes.map((url, i) => (

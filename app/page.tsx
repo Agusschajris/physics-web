@@ -39,7 +39,7 @@ export default function Home() {
       <div className="flex gap-4 mt-6">
         <Link href="/memes">
           <button className="px-6 py-3 bg-pink-600 text-white rounded-xl hover:bg-pink-800 transition">
-            Kinematics Memes
+            Physics Memes
           </button>
         </Link>
       </div>
