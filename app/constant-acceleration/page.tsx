@@ -7,7 +7,8 @@ export default function ConstantAccelerationPage() {
   const [v_i, setV_i] = useState("");
   const [a, setA] = useState("");
   const [t_i, setT_i] = useState("");
-  const [graph, setGraph] = useState("");
+  const [graph_pos, setPosGraph] = useState("");
+  const [graph_vel, setVelGraph] = useState("");
 
   const handleGenerate = async () => {
     const res = await fetch("http://localhost:8000/CA", {
@@ -23,7 +24,8 @@ export default function ConstantAccelerationPage() {
     });
 
     const data = await res.json();
-    setGraph(data.graph);
+    setPosGraph(data.graph_pos);
+    setVelGraph(data.graph_vel);
   };
   
   {/* Here starts what I actually see in the page */} 
@@ -59,9 +61,9 @@ export default function ConstantAccelerationPage() {
           <span className="w-10 text-sm text-gray-400">m</span>
         </div>
 
-        {/* Velocity */}
+        {/* Initial velocity */}
         <div className="flex items-center justify-center gap-2">
-          <span className="w-10 font-semibold">V:</span>
+          <span className="w-10 font-semibold">V₀:</span>
           <input type="number" className="border p-2 rounded w-32" value={v_i} onChange={(e) => setV_i(e.target.value)} />
           <span className="w-10 text-sm text-gray-400">m/s</span>
         </div>
@@ -83,13 +85,14 @@ export default function ConstantAccelerationPage() {
         {/* Generate graph button */}
         <button onClick={handleGenerate}
           className="px-4 py-2 bg-violet-600 text-white rounded hover:bg-violet-800">
-          Generate position graph
+          Generate graphs
         </button>
       </div>
 
       {/* Position graph */}
-      {graph && (<img src={`data:image/png;base64,${graph}`} alt="Constant acceleration position graph" className="mt-6"/>)}
-      
+      {graph_pos && (<img src={`data:image/png;base64,${graph_pos}`} alt="Constant acceleration position graph" className="mt-6"/>)}
+      {graph_vel && (<img src={`data:image/png;base64,${graph_vel}`} alt="Constant acceleration velocity graph" className="mt-6"/>)}
+
       {/* Clarification */}
       <p className="mt-4 text-base max-w-prose text-center">
         ** Actually, we also have a graph for velocity in Uniform Motion, but here we don't take it into account since the graph of a constant is just a horizontal straight line that doesn't give us much useful information.

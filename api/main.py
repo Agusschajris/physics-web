@@ -66,24 +66,45 @@ def UM(data: UMInputs):
 # Constant Acceleration
 @app.post("/CA")
 def CA(data: CAInputs):
-    def f_CA(t, t_i, x_i, v_i, a):  # CA equation
-        return x_i + v_i*(t-t_i) + 0.5*a*(t-t_i)**2
+    # Position graph
+    def f_CA_pos(t, t_i, x_i, v_i, a):
+        return x_i + v_i*(t-t_i) + 0.5*a*(t-t_i)**2  # equation
 
     t = np.linspace(data.t_i, data.t_f, 100)
-    x = f_CA(t, data.t_i, data.x_i, data.v_i, data.a)
+    x = f_CA_pos(t, data.t_i, data.x_i, data.v_i, data.a)
 
     plt.figure()
     plt.plot(t, x, color='blueviolet')
     plt.xlabel("Time")
     plt.ylabel("Position")
-    plt.title("Constant Acceleration")
+    plt.title("Constant Acceleration (position vs time)")
     plt.grid(linestyle='dashed')
 
     # Convert graph to base64 to send it
     buf = io.BytesIO()
     plt.savefig(buf, format="png")
     buf.seek(0)
-    graph = base64.b64encode(buf.read()).decode("utf-8")
+    graph_pos = base64.b64encode(buf.read()).decode("utf-8")
     plt.close()
 
-    return {"graph": graph}
+    # Velocity graph
+    def f_CA_vel(t, t_i, v_i, a):
+        return v_i + a*(t-t_i)  # equation
+
+    # t = np.linspace(data.t_i, data.t_f, 100) --> no need to re-calculate t
+    v = f_CA_vel(t, data.t_i, data.v_i, data.a)
+
+    plt.figure()
+    plt.plot(t, v, color='blueviolet')
+    plt.xlabel("Time")
+    plt.ylabel("Velocity")
+    plt.title("Constant Acceleration (velocity vs time)")
+    plt.grid(linestyle='dashed')
+
+    buf = io.BytesIO()
+    plt.savefig(buf, format="png")
+    buf.seek(0)
+    graph_vel = base64.b64encode(buf.read()).decode("utf-8")
+    plt.close()
+
+    return {"graph_pos": graph_pos, "graph_vel": graph_vel}
