@@ -13,7 +13,7 @@ export default function Home() {
         1D kinematics simulator
       </p>
 
-      {/* Buttons */}
+      {/* UM and CA buttons */}
       <div className="flex gap-4 mt-6">
         {/* Uniform motion */}
         <Link href="/uniform-motion">
@@ -34,6 +34,15 @@ export default function Home() {
       <p className="mt-6 text-sm">
         By Agustina S. G.
       </p>
+
+     {/* Memes button */}
+      <div className="flex gap-4 mt-6">
+        <Link href="/memes">
+          <button className="px-6 py-3 bg-pink-600 text-white rounded-xl hover:bg-pink-800 transition">
+            Kinematics Memes
+          </button>
+        </Link>
+      </div>
 
     </main>
   );
