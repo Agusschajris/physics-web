@@ -6,7 +6,7 @@ Features to add:
 
 ✔ physics memes page (from pinterest)
 
-☐ display complete functions with the inserted values
+✔ display complete functions with the inserted values
 
 ☐ section that shows the value of time or position/velocity according to a specific value of time or position/velocity
 
