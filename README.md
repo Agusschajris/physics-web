@@ -1,6 +1,6 @@
 Features to add:
 
-☐ button to decide if the graph includes negative values
+✔ button to decide if the graph includes negative values
 
 ✔ velocity graph for constant acceleration
 
