@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function ConstantAccelerationPage() {
-  {/* Getting graph */}
+  // Getting graph
   const [x_i, setX_i] = useState("");
   const [v_i, setV_i] = useState("");
   const [a, setA] = useState("");
@@ -30,7 +30,7 @@ export default function ConstantAccelerationPage() {
     setVelGraph(data.graph_vel);
   };
   
-  {/* Here starts what I actually see in the page */} 
+  // Here starts what I actually see in the page
   return (
     <main className="flex flex-col items-center min-h-screen py-10">
       {/* Title */}
@@ -40,7 +40,7 @@ export default function ConstantAccelerationPage() {
 
       {/* Description */}
       <p className="mt-4 text-base max-w-prose text-center">
-        "Constant Acceleration" is a more sophisticated version of Uniform Motion, since now the velocity abandons the constants gang and joins the variables, so now we have two formulas (which means two different graphs!**): one for the position of the object and another one for its speed. And we also have a new character that joins the constants gang: acceleration.
+        &quot;Constant Acceleration&quot; is a more sophisticated version of Uniform Motion, since now the velocity abandons the constants gang and joins the variables, so now we have two formulas (which means two different graphs!&#42;&#42;): one for the position of the object and another one for its speed. And we also have a new character that joins the constants gang: acceleration.
       </p>
 
       {/* Formulas */}
@@ -110,7 +110,7 @@ export default function ConstantAccelerationPage() {
 
       {/* Clarification */}
       <p className="mt-4 text-base max-w-prose text-center">
-        ** Actually, we also have a graph for velocity in Uniform Motion, but here we don't take it into account since the graph of a constant is just a horizontal straight line that doesn't give us much useful information.
+        &#42;&#42; Actually, we also have a graph for velocity in Uniform Motion, but here we don&apos;t take it into account since the graph of a constant is just a horizontal straight line that doesn&apos;t give us much useful information.
       </p>
 
     </main>

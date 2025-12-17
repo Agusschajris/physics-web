@@ -2,12 +2,13 @@
 import { useState } from "react";
 
 export default function UniformMotionPage() {
-  {/* Getting graph */}
+  // Getting graph
   const [x_i, setX_i] = useState("");
   const [v, setV] = useState("");
   const [t_i, setT_i] = useState("");
   const [graph, setGraph] = useState("");
   const [onlyPositive, setOnlyPositive] = useState(false);
+
 
   const handleGenerate = async () => {
     const res = await fetch("http://localhost:8000/UM", {
@@ -26,7 +27,7 @@ export default function UniformMotionPage() {
     setGraph(data.graph);
   };
   
-  {/* Here starts what I actually see in the page */} 
+  // Here starts what I actually see in the page
   return (
     <main className="flex flex-col items-center min-h-screen py-10">
       {/* Title */}
@@ -36,7 +37,7 @@ export default function UniformMotionPage() {
 
       {/* Description */}
       <p className="mt-4 text-base max-w-prose text-center">
-        "Uniform Motion" is a 1D motion in which an object moves at constant speed and (as Newton helpfully reminds us) will never stop moving unless something stops it. This is the formula we use to calculate the position of the object as a function of time:
+        &quot;Uniform Motion&quot; is a 1D motion in which an object moves at constant speed and (as Newton helpfully reminds us) will never stop moving unless something stops it. This is the formula we use to calculate the position of the object as a function of time:
       </p>
 
       {/* Formula */}
