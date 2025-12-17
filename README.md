@@ -4,7 +4,7 @@ Features to add:
 
 ✔ velocity graph for constant acceleration
 
-☐ physics memes page (from pinterest)
+✔ physics memes page (from pinterest)
 
 ☐ display complete functions with the inserted values
 
