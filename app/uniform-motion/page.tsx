@@ -85,6 +85,11 @@ export default function UniformMotionPage() {
 
       </div>
 
+      {/* Formula with inputs */}
+      { x_i !== "" && v !== "" && t_i !== "" && ( <p className="mt-4 text-lg font-bold italic max-w-prose text-center">
+                                                    X(t) = {x_i}m + {v}m/s·(t - {t_i}s)
+                                                  </p>)}
+
       {/* Graph */}
       {graph && (<img src={`data:image/png;base64,${graph}`} alt="Uniform motion graph" className="mt-6"/>)}
       

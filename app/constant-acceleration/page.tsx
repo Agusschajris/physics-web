@@ -97,8 +97,15 @@ export default function ConstantAccelerationPage() {
 
       </div>
 
-      {/* Position and velocity graphs */}
+      {/* Position and velocity graphs and corresponding formulas */}
+      { x_i !== "" && v_i !== "" && t_i !== "" && a !== "" && ( <p className="mt-4 text-lg font-bold italic max-w-prose text-center">
+                                                    X(t) = {x_i}m + {v_i}m/s·(t - {t_i}s) + {1/2 * Number(a)}m/s²·(t - {t_i}s)²
+                                                  </p>)}
       {graph_pos && (<img src={`data:image/png;base64,${graph_pos}`} alt="Constant acceleration position graph" className="mt-6"/>)}
+
+      { x_i !== "" && v_i !== "" && t_i !== "" && a !== "" && ( <p className="mt-4 text-lg font-bold italic max-w-prose text-center">
+                                                    V(t) = {v_i}m/s + {a}m/s²·(t - {t_i}s)
+                                                  </p>)}
       {graph_vel && (<img src={`data:image/png;base64,${graph_vel}`} alt="Constant acceleration velocity graph" className="mt-6"/>)}
 
       {/* Clarification */}
