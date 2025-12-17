@@ -25,6 +25,7 @@ class UMInputs(BaseModel):
     v: float
     t_i: float
     t_f: float
+    only_positive: bool = False
 
 
 # Constant Acceleration
@@ -34,6 +35,7 @@ class CAInputs(BaseModel):
     a: float
     t_i: float
     t_f: float
+    only_positive: bool = False
 
 
 # Define POST endpoints that will send the graph
@@ -46,6 +48,12 @@ def UM(data: UMInputs):
     t = np.linspace(data.t_i, data.t_f, 100)
     x = f_UM(t, data.t_i, data.x_i, data.v)
 
+    # If only_positive=True, deleting negative position values from x and t
+    if data.only_positive:
+        mask = (x >= 0) & (t >= 0)
+        t = t[mask]
+        x = x[mask]
+
     plt.figure()
     plt.plot(t, x, color='blueviolet')
     plt.xlabel("Time")
@@ -53,7 +61,7 @@ def UM(data: UMInputs):
     plt.title("Uniform Motion")
     plt.grid(linestyle='dashed')
 
-    # Convert graph to base64 to send it
+    # Converting graph to base64 to send it
     buf = io.BytesIO()
     plt.savefig(buf, format="png")
     buf.seek(0)
@@ -72,6 +80,12 @@ def CA(data: CAInputs):
 
     t = np.linspace(data.t_i, data.t_f, 100)
     x = f_CA_pos(t, data.t_i, data.x_i, data.v_i, data.a)
+
+    # If only_positive=True, deleting negative position values from x and t
+    if data.only_positive:
+        mask = (x >= 0) & (t >= 0)
+        t = t[mask]
+        x = x[mask]
 
     plt.figure()
     plt.plot(t, x, color='blueviolet')

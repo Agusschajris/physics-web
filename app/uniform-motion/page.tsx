@@ -7,6 +7,7 @@ export default function UniformMotionPage() {
   const [v, setV] = useState("");
   const [t_i, setT_i] = useState("");
   const [graph, setGraph] = useState("");
+  const [onlyPositive, setOnlyPositive] = useState(false);
 
   const handleGenerate = async () => {
     const res = await fetch("http://localhost:8000/UM", {
@@ -16,7 +17,8 @@ export default function UniformMotionPage() {
         x_i: Number(x_i),
         v: Number(v),
         t_i: Number(t_i),
-        t_f: 10
+        t_f: 10,
+        only_positive: onlyPositive
       })
     });
 
@@ -75,6 +77,12 @@ export default function UniformMotionPage() {
           className="px-4 py-2 bg-violet-600 text-white rounded hover:bg-violet-800">
           Generate graph
         </button>
+
+        {/* Only positive values checkbox */}
+        <label className="flex items-center gap-2 mt-2 text-sm">
+          <input type="checkbox" checked={onlyPositive} onChange={(e) => setOnlyPositive(e.target.checked)}/> Only positive values
+        </label>
+
       </div>
 
       {/* Graph */}

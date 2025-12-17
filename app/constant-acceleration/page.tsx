@@ -9,6 +9,7 @@ export default function ConstantAccelerationPage() {
   const [t_i, setT_i] = useState("");
   const [graph_pos, setPosGraph] = useState("");
   const [graph_vel, setVelGraph] = useState("");
+  const [onlyPositive, setOnlyPositive] = useState(false);
 
   const handleGenerate = async () => {
     const res = await fetch("http://localhost:8000/CA", {
@@ -19,7 +20,8 @@ export default function ConstantAccelerationPage() {
         v_i: Number(v_i),
         a : Number(a),
         t_i: Number(t_i),
-        t_f: 10
+        t_f: 10,
+        only_positive: onlyPositive
       })
     });
 
@@ -87,9 +89,15 @@ export default function ConstantAccelerationPage() {
           className="px-4 py-2 bg-violet-600 text-white rounded hover:bg-violet-800">
           Generate graphs
         </button>
+
+        {/* Only positive values checkbox */}
+        <label className="flex items-center gap-2 mt-2 text-sm">
+          <input type="checkbox" checked={onlyPositive} onChange={(e) => setOnlyPositive(e.target.checked)}/> Only positive values
+        </label>
+
       </div>
 
-      {/* Position graph */}
+      {/* Position and velocity graphs */}
       {graph_pos && (<img src={`data:image/png;base64,${graph_pos}`} alt="Constant acceleration position graph" className="mt-6"/>)}
       {graph_vel && (<img src={`data:image/png;base64,${graph_vel}`} alt="Constant acceleration velocity graph" className="mt-6"/>)}
 
