@@ -12,7 +12,7 @@ export default function ConstantAccelerationPage() {
   const [onlyPositive, setOnlyPositive] = useState(false);
 
   const handleGenerate = async () => {
-    const res = await fetch("http://localhost:8000/CA", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/CA`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

@@ -11,7 +11,7 @@ export default function UniformMotionPage() {
 
 
   const handleGenerate = async () => {
-    const res = await fetch("http://localhost:8000/UM", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/UM`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
