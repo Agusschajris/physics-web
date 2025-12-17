@@ -12,3 +12,5 @@ Features to add:
 
 ☐ section to solve for unknown variables (ex: want to know initial velocity knowing other data)
 
+☐ Idiot-proof measures (like all values must be entered before generating the graph)
+
